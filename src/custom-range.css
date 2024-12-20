@@ -1,0 +1,59 @@
+/* Для WebKit (Chrome, Safari, Edge) */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Убирает ограничения стиля */
+    background-color: #14FFEC; /* Бирюзовый */
+    border: 2px solid #006064; /* Темно-бирюзовая обводка */
+    border-radius: 50%; /* Скругленный ползунок */
+    cursor: pointer;
+    box-shadow: 0 0 10px #00bcd4; 
+  }
+  
+  /* Для Firefox */
+  input[type="range"]::-moz-range-thumb {
+    background-color: #14FFEC; /* Бирюзовый */
+    border: 2px solid #006064; /* Темно-бирюзовая обводка */
+    border-radius: 50%; /* Скругленный ползунок */
+    cursor: pointer;
+    box-shadow: 0 0 10px #00bcd4; 
+  }
+  
+  /* Для IE/Edge */
+  input[type="range"]::-ms-thumb {
+    background-color: #14FFEC; /* Бирюзовый */
+    border: 2px solid #006064; /* Темно-бирюзовая обводка */
+    border-radius: 50%; /* Скругленный ползунок */
+    cursor: pointer;
+    box-shadow: 0 0 10px #00bcd4; 
+  }
+
+/* Стиль для области прокрутки (Webkit-браузеры, такие как Chrome, Edge, Safari) */
+textarea::-webkit-scrollbar {
+    width: 10px; /* Ширина вертикального скролла */
+    height: 10px; /* Высота горизонтального скролла */
+    background: #f0f0f0; /* Цвет фона полосы прокрутки */
+    border-radius: 5px; /* Закругление полосы */
+}
+
+/* Стиль для ползунка */
+textarea::-webkit-scrollbar-thumb {
+    background: #00bcd4; /* Бирюзовый цвет ползунка */
+    border-radius: 5px; /* Закругление ползунка */
+    border: 2px solid #ffffff; /* Цвет границы между ползунком и фоном */
+}
+
+/* При наведении мыши */
+textarea::-webkit-scrollbar-thumb:hover {
+    background: #0097a7; /* Темнее при наведении */
+}
+
+/* Для Firefox */
+textarea {
+    scrollbar-width: thin; /* Устанавливает тонкий скролл */
+    scrollbar-color: #00bcd4 #f0f0f0; /* Цвет ползунка и фона */
+}
+  
+
+input[type="checkbox"] {
+  appearance: none; /* Убирает стандартный стиль */
+  -webkit-appearance: none; /* Для Safari */
+  -moz-appearance: none; }

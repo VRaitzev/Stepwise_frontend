@@ -1,0 +1,273 @@
+@import url('customAnimations.css');
+@import url('custom-range.css');
+@import url('var.css');
+
+
+body {
+    background-color: #323232;
+    color: #ffffff;
+}
+
+.custom-container {
+    width: 50%;
+    padding: 25px 35px;
+    border: 1px solid #fff; 
+    border-radius: 25px; 
+    box-shadow: 0 0 10px#14FFEC; 
+    background:  #252525;
+}
+
+.custom-header {
+    width: 100%;
+    border-bottom: 1px  solid #fff;
+    box-shadow: 0 0 10px#14FFEC; 
+    background:  #252525;
+}
+
+.custom-footer {
+    width: 100%;
+    border-top: 1px  solid #fff;
+    box-shadow: 0 0 10px#14FFEC; 
+    background:  #252525;
+}
+
+.custom-border {
+    border: 1px solid #fff; 
+    border-radius: 25px; 
+    box-shadow: 0 0 10px #14FFEC; 
+}
+
+.custom-border--half {
+    border: 1px solid #fff; 
+    border-radius: 25px 0px 0px 25px; 
+    box-shadow: 0 0 10px #14FFEC; 
+}
+ 
+.custom-container-physical {
+    height: 75%;
+}
+
+
+.form-control:focus {
+    outline: 2px solid #14FFEC; 
+}
+
+.custom-text {
+    color: #14FFEC;
+    text-shadow:  0 0 7px #14FFEC;
+}
+
+
+.custom-button {       
+    border-radius: 25px;           
+    background-color:  #252525;    
+    color:  #fff;                  
+    border: 2px solid #fff;  
+    transition: border 0.5s, transform 0.7s, color 0.8s, text-shadow  0.9s, box-shadow  0.9s;           
+}
+
+.custom-button:hover {                    
+    color:  #14FFEC;   
+    border: 2px solid #14FFEC;   
+    transform: scale(110%);  
+    text-shadow: 0 0 7px #14FFEC;
+    box-shadow: 0 0 10px#14FFEC;                           
+}
+
+.custom-button--big {
+    padding: 10px 20px 13px;                      
+}
+
+.custom-button--medium {
+    padding: 8px 14px 10px;                                
+}
+
+
+.custom-card {
+    border-radius: 6%; 
+    overflow: hidden; 
+    position: absolute;
+    top: 50%;
+    left: 33%;
+    width: 25rem;
+    height: 38rem;
+    background-color:  #252525;  
+    border: 2px solid #fff; 
+    color: #ffffff;
+    transition: transform 2s, opacity 2s, box-shadow 1s;
+}
+
+.custom-card-left {
+    opacity: 0.4;
+    transform: scale(0.65) translateX(-200%);
+}
+
+.custom-card-center {
+    opacity: 1;
+    transform: scale(1) translateX(0); 
+    box-shadow: 0 0 10px #14FFEC; 
+}
+
+.custom-card-right {
+    opacity: 0.4;
+    transform: scale(0.65) translateX(200%);
+}
+
+.signature-card-selection {
+    position: absolute;
+    top: 85%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    text-align: center; 
+    width: 100%; 
+}
+
+.main-block-card-selection {
+    padding-top: 8%;
+}
+
+.fade-in {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px); /* Лёгкое смещение вниз */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-in-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.custom-edit-text{
+    background:   #252525;
+    width: 40%;
+    text-align: center;  
+    color: #fff;
+}
+
+input.custom-placeholder::placeholder {
+    text-align: center;  
+    color: #ffffff91;
+}
+
+.custom-button--circle {
+    width: 55px !important;              /* Ширина кнопки */
+    height: 55px !important;  
+    font-size: 3rem !important;           /* Высота кнопки */
+    border-radius: 50%;       /* Скругление углов, чтобы форма была круглой */
+    padding-bottom: 10;               /* Убираем внутренние отступы */
+    text-align: center;       /* Выравнивание текста по горизонтали */
+    line-height: 40px;        /* Выравнивание текста по вертикали */
+}
+
+.resours-custom-card{
+    background-color:  #252525;  
+    border: 1px solid #fff;
+    border-radius: 25px; 
+    box-shadow: 0 0 10px #14FFEC; 
+    color: #ffffff;
+}
+
+.custom-edit-text--big{
+    width: 90%;
+}
+
+.custom-link{
+    text-decoration: none; 
+    color: inherit; 
+    transition: transform 0.7s, color 0.8s, text-shadow  0.9s;    
+}
+
+.custom-link:hover{
+    color:  #14FFEC;   
+    transform: scale(110%);  
+    text-shadow: 0 0 10px #14FFEC;
+}
+
+.custom-progressbar{
+    background-color: #14FFEC !important;
+}
+
+
+.progress{
+    border-radius: 1rem;
+    box-shadow: inset 0 0 10px #fff, 0 0 10px #fff;
+}
+
+.ring-progress-bar {
+    left: 100px;
+    width: 24rem;
+    height: 24rem;
+    border-radius: 50%;
+    box-shadow: inset 0 0 10px #fff, 0 0 10px #fff;
+    background: 
+      radial-gradient(closest-side,  #252525 86%, transparent 87% 100%),
+      conic-gradient(#14FFEC var(--percentage), rgb(255, 255, 255) 0);    
+  }
+
+  .custom-container--main-page {
+    width: 65%;
+    height: 100%;
+}
+
+
+.progress-container {
+    width: 100%; /* Прогресс-бар займет всю ширину родительского контейнера */
+}
+
+
+.custom-checkbox{
+    height: 1.8rem;
+    width: 1.8rem;
+    border: 1px solid #fff; 
+    border-radius: 0.5rem; 
+    box-shadow: 0 0 7px #14FFEC; 
+    background-color:  #252525;
+    transition: box-shadow 0.5s;
+}
+
+.custom-checkbox:checked{
+    background: radial-gradient(
+        circle,
+        #14FFEC 0%,
+        #14FFEC 40%,
+        transparent 50%,
+        transparent 100%
+      );
+    box-shadow: 0 0 15px #14FFEC, 0 0 25px #14FFEC;
+}
+
+.custom-range--main-page{
+    width: 80%;
+}
+
+.progress--mental-plan-settings{
+    width: 70%;
+}
+
+.custom-button--circle {   
+    height: 2.5rem;
+    width: 2.5rem;    
+    padding-bottom: 2rem;
+    border-radius: 50%;           
+    background-color:  #252525;    
+    color:  #fff;                  
+    border: 2px solid #fff;  
+    transition: border 0.5s, transform 0.7s, color 0.8s, text-shadow  0.9s, box-shadow  0.9s;           
+}
+
+.custom-border--bottom{
+    border-bottom: 1px solid #fff; 
+}
+
+.custom-bg{
+    background-color: #252525;
+}
+
+.custom-button--intro{
+    background-color: #323232;
+}
+
+.custom-container--physical-plane-settings{
+    width: 120%;
+}

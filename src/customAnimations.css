@@ -1,0 +1,26 @@
+@keyframes card-carousel-rotation {
+    from {
+        position: absolute;
+        top: 125px;
+        left: 400px;
+        width: 287px;
+        height: 400px;
+        opacity:0.4;
+    }
+
+    50% {
+        position: absolute;
+        top: 175px;
+        left: 750px;
+        opacity:1;
+    }
+
+    to {
+        position: absolute;
+        top: 125px;
+        left: 1250px;
+        width: 287px;
+        height: 400px;
+        opacity:0.4;
+    }
+}
