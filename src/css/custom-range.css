@@ -57,3 +57,25 @@ input[type="checkbox"] {
   appearance: none; /* Убирает стандартный стиль */
   -webkit-appearance: none; /* Для Safari */
   -moz-appearance: none; }
+
+  .custom-container-physical::-webkit-scrollbar {
+    width: 10px; /* Ширина вертикальной полосы прокрутки */
+    background: #323232; /* Фон полосы прокрутки */
+    border-radius: 10px;
+}
+
+.custom-container-physical::-webkit-scrollbar-thumb {
+    background: #14FFEC; /* Цвет ползунка */
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0, 255, 255, 0.5);
+}
+
+.custom-container-physical::-webkit-scrollbar-thumb:hover {
+    background: #00b8b8; /* Цвет ползунка при наведении */
+}
+
+/* Стилизация дорожки полосы прокрутки */
+.custom-container-physical::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 10px;
+}

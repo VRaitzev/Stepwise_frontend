@@ -1,7 +1,7 @@
 import { Link, Outlet } from 'react-router-dom';
 const MainLayout = () => {
     return (
-        <>
+        <div className='glob'>
             <header className="custom-header">
                 <div className="container text-center fs-3 fw-light py-3 ">
                     <div className="row">
@@ -21,7 +21,7 @@ const MainLayout = () => {
                 <Outlet />
             </main>
             <footer className='custom-footer'>2025</footer>
-        </>
+        </div>
     )
 }
 

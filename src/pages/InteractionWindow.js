@@ -59,7 +59,24 @@ function InterationWindow() {
 
 
 
+    const [allProgress, setAllProgress] = useState(0);
+    const [mentalProgress, setMentalProgress] = useState(0);
+    const [physicalProgress, setPhysicalProgress] = useState(0);
 
+    // Функция для вычисления прогресса
+    const calculateProgress = () => {
+        const totalMentalProgress = list_mental_task.reduce((total, task) => total + (Number(task.progress) || 0), 0);
+        const totalPhysicalProgress = list_exercises.reduce((total, exercise) => total + (exercise.status ? 1 : 0), 0);
+
+        // Вычисление среднего прогресса для ментальных и физических задач
+        const mentalProgressPercentage = list_mental_task.length > 0 ? (totalMentalProgress / (list_mental_task.length * 100)) * 100 : 0;
+        const physicalProgressPercentage = list_exercises.length > 0 ? (totalPhysicalProgress / list_exercises.length) * 100 : 0;
+
+        const allProgress = (mentalProgressPercentage + physicalProgressPercentage) / 2; // Средний прогресс
+        setMentalProgress(Math.round(mentalProgressPercentage));
+        setPhysicalProgress(physicalProgressPercentage);
+        setAllProgress(allProgress); // Общий прогресс
+    };
 
 
     const [current_nutrition_rec, set_current_nutrition_rec] = useState({})
@@ -78,9 +95,9 @@ function InterationWindow() {
                 return;
             }
             
-            let task1 = Math.round(books.reduce((total, resource) => total + resource.resource.volume - resource.progress, 0) / mentalPlan.data.progress)
-            let task2 = Math.round(videos.reduce((total, resource) => total + resource.resource.volume - resource.progress, 0) / mentalPlan.data.progress)
-            let task3 = Math.round(courses.reduce((total, resource) => total + resource.resource.volume - resource.progress, 0) / mentalPlan.data.progress)
+            let task1 = (books.reduce((total, resource) => total + resource.resource.volume - resource.progress, 0) / mentalPlan.data.progress)
+            let task2 = (videos.reduce((total, resource) => total + resource.resource.volume - resource.progress, 0) / mentalPlan.data.progress)
+            let task3 = (courses.reduce((total, resource) => total + resource.resource.volume - resource.progress, 0) / mentalPlan.data.progress)
             let current_book = books.find((item) => item.resource.volume > item.progress);
             let current_video = videos.find((item) => item.resource.volume > item.progress);
             let current_course = courses.find((item) => item.resource.volume > item.progress);
@@ -206,7 +223,10 @@ function InterationWindow() {
                     ? { ...item, status: isChecked }
                     : item
             )
+            
         );
+        calculateProgress()
+        alert(physicalProgress)
     };
 
 
@@ -219,6 +239,7 @@ function InterationWindow() {
                     : item
             )
         );
+        calculateProgress()
     };
     const handleAddTask = async () => {
         try {
@@ -262,7 +283,7 @@ function InterationWindow() {
     return (
         <div>
             <div className="container fs-4 custom-container custom-container--main-page mb-5 fw-light mt-5 text-center">
-                <h4 className="fw-light fs-1 mt-3 mb-5">Рейтинг эффективности</h4>
+                {/* <h4 className="fw-light fs-1 mt-3 mb-5">Рейтинг эффективности</h4>
                 <div className="ring-progress-bar d-flex justify-content-center align-items-center mb-2  mx-auto">
                     <p className="fw-light fs-1 custom-text">75%</p>
                 </div>
@@ -270,21 +291,15 @@ function InterationWindow() {
                 <div className="progress-container mt-4">
                     <h5 className="fw-light fs-2 mb-2">Ментальные задачи</h5>
                     <div className="progress mb-3" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                        <div className="progress-bar custom-progressbar w-75"></div>
+                        <div style={{width: `${mentalProgress===99 ? 100: mentalProgress}%`}} className="progress-bar custom-progressbar"></div>
                     </div>
                 </div>
                 <div className="progress-container">
                     <h5 className="fw-light fs-2 mb-2">Физические задачи</h5>
                     <div className="progress mb-3" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                        <div className="progress-bar custom-progressbar w-75"></div>
+                        <div style={{width: `${physicalProgress===99 ? 100: mentalProgress}%`}} className="progress-bar custom-progressbar"></div>
                     </div>
-                </div>
-                <div className="progress-container">
-                    <h5 className="fw-light fs-2 mb-2">Разные задачи</h5>
-                    <div className="progress mb-4" role="progressbar" aria-label="Basic example" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-                        <div className="progress-bar custom-progressbar w-75"></div>
-                    </div>
-                </div>
+                </div> */}
                 <div className='d-flex justify-content-center'>
                     <button onClick={update} className="custom-button custom-button--medium content-center fs-4 fw-light">Отправить!</button>
                 </div>
@@ -386,7 +401,7 @@ function InterationWindow() {
                         <span className="d-flex justify-content-center">Задачи</span>
                     </div>
                     <div className="col-1">
-                        <span className="d-flex justify-content-center">+</span>
+                        <span onClick={() => setTaskEditStatus(true)}  className="d-flex justify-content-center">+</span>
                     </div>
                     <div className="col-1">
                         <span className="d-flex justify-content-center">-</span>

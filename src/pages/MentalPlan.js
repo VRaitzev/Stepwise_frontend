@@ -112,8 +112,16 @@ function MentalPlan() {
             alert("Цель обязательна!");
             return;
         }
-        if ((books.length === 0 && videos.length === 0 && courses.length === 0)) {
-            alert("Пожалуйста, укажите цель и добавьте хотя бы один ресурс!");
+        if ((books.length === 0 )) {
+            alert("Пожалуйста, добавьте хотя бы одну книгу!");
+            return;
+        }
+        if ((videos.length === 0)) {
+            alert("Пожалуйста, добавьте хотя бы одно видео!");
+            return;
+        }
+        if ((courses.length === 0)) {
+            alert("Пожалуйста, добавьте хотя бы один курс!");
             return;
         }
         const resources = []

@@ -116,7 +116,7 @@ function MentalPlanSettings() {
             ...prevCourses,
             {
                 id: res.data.data,  // Генерация уникального id для курса
-                title: "",
+                title: "Заполните название!",
                 description: "",
                 numberOfLessons: 0,  // Количество уроков по умолчанию
                 editStatus: true
@@ -124,8 +124,26 @@ function MentalPlanSettings() {
         ]);
     };
 
-    const handleRemoveResource = async (id) => {
+    const handleRemoveResource = async (id, type) => {
         try {
+            if (type === 'book') {
+                if ((books.length === 1)) {
+                    alert("В ментальном плане должна быть хотя бы одна книга!");
+                    return;
+                }
+            }
+            if (type === 'video') {
+                if ((type = 'video' && videos.length === 1)) {
+                    alert("В ментальном плане должна быть хотя бы одно видео!");
+                    return;
+                }
+            }
+            if (type === 'course') {
+                if ((type = 'course' && courses.length === 1)) {
+                    alert("В ментальном плане должна быть хотя бы один курс!");
+                    return;
+                }
+            }
             const res = await deleteResource({ token: token, id: id }).unwrap();
             setReloadStatus((prevStatus) => !prevStatus);
         }
@@ -224,13 +242,8 @@ function MentalPlanSettings() {
                     продвигаетесь к своим целям, и вдохновляться собственными результатами!
                 </p>
                 <div className="mt-1 text-center">
-                    <input
-                        type="text"
-                        className="mb-3 custom-edit-text custom-border custom-placeholder"
-                        placeholder="Итак, укажите цель!"
-                        id="loginInput1"
-                        aria-describedby="Введите логин"
-                    />
+                <div className='mb-3'>Цель: {mentalPlan.data.goal}</div>
+                    
                 </div>
             </div>
 

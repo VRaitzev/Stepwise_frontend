@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { useAddUserMutation, useGetUsersQuery, useRemoveUserMutation } from '../redux/RTK Query API/usersAPI';
+import { useAddUserMutation } from '../redux/RTK Query API/usersAPI';
 
 function RegistrationPage() {
     const navigate = useNavigate();
@@ -9,6 +9,8 @@ function RegistrationPage() {
     const [login, setLogin] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);  // Состояние для видимости пароля
+    const [isConfirmPasswordVisible, setIsConfirmPasswordVisible] = useState(false);  // Состояние для видимости повторного пароля
 
     const handleSingInUser = async (e) => {
         e.preventDefault();
@@ -82,14 +84,19 @@ function RegistrationPage() {
                                 <i className="bi bi-key fs-4 custom-text"></i> Придумайте пароль
                             </label>
                             <div className="input-group">
-                                <input type="password" 
-                                className="form-control me-3" 
-                                placeholder="Введите пароль" 
-                                id="exampleInputPassword1"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)} />
-                                <span>
-                                    <i className="bi bi-eye fs-4 custom-text"></i>
+                                <input 
+                                    type={isPasswordVisible ? "text" : "password"} // Управление типом пароля
+                                    className="form-control me-3" 
+                                    placeholder="Введите пароль" 
+                                    id="exampleInputPassword1"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)} 
+                                />
+                                <span 
+                                    onClick={() => setIsPasswordVisible(!isPasswordVisible)} // Переключаем видимость пароля
+                                    style={{ cursor: "pointer" }}
+                                >
+                                    <i className={`bi ${isPasswordVisible ? "bi-eye-slash" : "bi-eye"} fs-4 custom-text`}></i>
                                 </span>
                             </div>
                         </div>
@@ -99,14 +106,18 @@ function RegistrationPage() {
                             </label>
                             <div className="input-group">
                                 <input 
-                                type="password" 
-                                className="form-control me-3" 
-                                placeholder="Повторите пароль" 
-                                id="exampleInputPassword2" 
-                                value={confirmPassword}
-                                onChange={(e) => setConfirmPassword(e.target.value)}/>
-                                <span>
-                                    <i className="bi bi-eye fs-4 custom-text"></i>
+                                    type={isConfirmPasswordVisible ? "text" : "password"} // Управление типом повторного пароля
+                                    className="form-control me-3" 
+                                    placeholder="Повторите пароль" 
+                                    id="exampleInputPassword2" 
+                                    value={confirmPassword}
+                                    onChange={(e) => setConfirmPassword(e.target.value)} 
+                                />
+                                <span 
+                                    onClick={() => setIsConfirmPasswordVisible(!isConfirmPasswordVisible)} // Переключаем видимость пароля
+                                    style={{ cursor: "pointer" }}
+                                >
+                                    <i className={`bi ${isConfirmPasswordVisible ? "bi-eye-slash" : "bi-eye"} fs-4 custom-text`}></i>
                                 </span>
                             </div>
                         </div>
@@ -117,6 +128,6 @@ function RegistrationPage() {
             </div>
         </div>
     );
-
 }
+
 export { RegistrationPage };

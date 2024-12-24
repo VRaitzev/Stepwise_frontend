@@ -11,10 +11,10 @@ function PhysicalPlan() {
     const [gender, setGender] = useState("male");
     const [weight, setWeight] = useState(40);
     const [physicalIndicators, setPhysicalIndicators] = useState({
-        bmi: 0,
-        condition: "",
-        normalWeight: { min: 0, max: 0 },
-        goal: ""
+        bmi: 20.41,
+        condition: "Норма",
+        normalWeight: { min: 36.3, max: 48.8 },
+        goal: "Поддерживать вес"
     });
     const user_id =  sessionStorage.getItem('user_id');
 
